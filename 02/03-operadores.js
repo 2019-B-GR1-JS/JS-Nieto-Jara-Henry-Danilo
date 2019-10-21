@@ -86,4 +86,47 @@ console.log('respuesta',respuesta)
 console.log('respuestaMonoresADiez',respuestaMenoresADiez)
 
 
+const respuestaFind =
+    arreglo.find(
+        (valorActual, indice, arreglo) => {
+            return valorActual === 8;
+        }
+    );
+console.log('respuestaFind',respuestaFind)
+const respuestaFindIndex =
+    arreglo.findIndex(
+        (valorActual) => {
+            return valorActual === 8;
+        }
+    );
+
+console.log('respuestaFind',respuestaFindIndex)
+
+// operar
+
+const respuestaReduce =
+    arreglo
+        .reduce(
+            (valorInicial, valorActual, indice, array) => {
+                return valorInicial + valorActual;
+            },0 //el valor inicial
+        );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
