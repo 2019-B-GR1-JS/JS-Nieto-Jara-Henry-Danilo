@@ -71,6 +71,7 @@ mapLocal([1,3,4,6,7],
 );
 
 //filter
+//arreglo filtrado
 function filterLocal(arreglo,funcion) {
     const arregloFilter = [];
     for(let indiceInicial=0; indiceInicial < arreglo.length; indiceInicial++)
@@ -80,7 +81,7 @@ function filterLocal(arreglo,funcion) {
            arregloFilter.push(arreglo[indiceInicial]);
         };
     }
-    console.log(arregloFilter);
+    console.log("arregloFilter",arregloFilter);
     return arregloFilter;
 }
 
@@ -91,6 +92,7 @@ return valorActual > 7
 );
 
 //some
+//V o F
 function someLocal(arreglo,funcion) {
     let someRespuesta = false;
     for(let indiceInicial=0; indiceInicial < arreglo.length; indiceInicial++)
@@ -100,7 +102,7 @@ function someLocal(arreglo,funcion) {
            someRespuesta= true;
         };
     }
-    console.log(someRespuesta);
+    console.log("someRespuesta",someRespuesta);
     return someRespuesta;
 }
 
@@ -111,9 +113,9 @@ someLocal([40,1,3,4,6,7,9,11,23],
 );
 
 //every
-
+//Vo F si todos cumplen
 function veryLocal(arreglo,funcion) {
-    let someRespuesta = false;
+    let everyRespuesta = false;
     for(let indiceInicial=0; indiceInicial < arreglo.length; indiceInicial++)
     {
         if (funcion(arreglo[indiceInicial]))
@@ -121,8 +123,8 @@ function veryLocal(arreglo,funcion) {
             someRespuesta= true;
         };
     }
-    console.log(someRespuesta);
-    return someRespuesta;
+    console.log("everyRespuesta",everyRespuesta);
+    return everyRespuesta;
 }
 
 everyLocal([40,1,3,4,6,7,9,11,23],
@@ -130,3 +132,25 @@ everyLocal([40,1,3,4,6,7,9,11,23],
         return valorActual > 7
     }
 );
+
+//reduce
+function reduceLocal(arreglo, funcion, valorInicial) {
+    let reduceResultado = valorInicial;
+    for (let indiceInicial = 0; indiceInicial < arreglo.length;indiceInicial++)
+    {
+        reduceResultado = funcion(reduceResultado,arreglo[indiceInicial], indiceInicial, arreglo );
+    }
+
+    console.log("reduceResultado", reduceResultado);
+    return reduceResultado;
+}
+
+reduceLocal(
+    [40,2,3,4,6,7,9,11,23],
+    (valorInicial, valorActual, indiceActual, arreglo) => {
+        return valorInicial + valorActual;
+    },0
+);
+
+
+
