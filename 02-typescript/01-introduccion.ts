@@ -8,7 +8,7 @@
 
 // const
 const numero: number = 0;
-//let nombre: string = "Danilo"
+//let nombre: string = "Danilo"ng server
 //let nombre: string = "Danilo"
 
 // DUCK TYPING

@@ -1,0 +1,24 @@
+{
+  "name": "JS-Nieto-Jara-Henry-Danilo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@angular/cli": "^8.3.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2019-B-GR1-JS/JS-Nieto-Jara-Henry-Danilo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2019-B-GR1-JS/JS-Nieto-Jara-Henry-Danilo/issues"
+  },
+  "homepage": "https://github.com/2019-B-GR1-JS/JS-Nieto-Jara-Henry-Danilo#readme"
+}
