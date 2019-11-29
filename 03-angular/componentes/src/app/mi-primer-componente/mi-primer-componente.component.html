@@ -1,11 +1,20 @@
 
 <h1>{{titulo}}</h1>
-<img width="200px"
-     height="200px"
+<img [width]="ancho"
+     [height]="alto"
      [src]="imagen"
      alt="">
 
-<!-- Property binding -->
+<input id="1" type="text" (change)="onSubmit($event)">
+<input id="2" type="text" (change)="onSubmit($event)">
+
+<button (click)="calculadora()">Suma</button>
+<input type="text" [value]="resul"><br>
+
+<label>suma:</label><input type="text" [value]="ress"><br><br>
+<label>resta:</label><input type="text" [value]="resr"><br><br>
+<label>producto:</label><input type="text" [value]="resm"><br><br>
+<label>division:</label><input type="text" [value]="resd"><br><br>
 <!-- [atributo]="valor" ->Atributos -->
 <p>{{textoImagen}}</p>
 

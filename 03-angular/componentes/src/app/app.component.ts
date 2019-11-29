@@ -10,8 +10,8 @@ export class AppComponent {
   arregloObjetos =[
     {
     id:1, //number
-    "nombre":"Laura", //string
-    apellido:"Cerón", //string
+    "nombre":"Danilo", //string
+    apellido:"Nieto", //string
     sueldo: 2.2, //number
     casado: true, //boolean
     carro:null,
@@ -20,9 +20,9 @@ export class AppComponent {
   },
     {
       id:1, //number
-      "nombre":"Alex", //string
+      "nombre":"Laura", //string
       apellido:"Cerón", //string
-      sueldo: 7.2, //number
+      sueldo: 7.3, //number
       casado: true, //boolean
       carro:null,
       ojos:undefined,
@@ -30,9 +30,9 @@ export class AppComponent {
     },
     {
       id:1, //number
-      "nombre":"Eithan", //string
-      apellido:"Cerón", //string
-      sueldo: 9.2, //number
+      "nombre":"Yomayra", //string
+      apellido:"Ceron", //string
+      sueldo: 9.4, //number
       casado: true, //boolean
       carro:null,
       ojos:undefined,
