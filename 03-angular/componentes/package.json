@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "elcomandazo": "ls && mkdir pepito && cd pepito/ && touch ejemplo.ts",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",

@@ -7,10 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'componentes';
+
+  fecha = new Date();
+  sueldo = 12.00003;
+  universidad = 'EPN';
   arregloObjetos =[
     {
     id:1, //number
-    "nombre":"Danilo", //string
+    nombre:"Danilo", //string
     apellido:"Nieto", //string
     sueldo: 2.2, //number
     casado: true, //boolean
@@ -20,7 +24,7 @@ export class AppComponent {
   },
     {
       id:1, //number
-      "nombre":"Laura", //string
+      nombre:"Laura", //string
       apellido:"Cerón", //string
       sueldo: 7.3, //number
       casado: true, //boolean
@@ -30,7 +34,7 @@ export class AppComponent {
     },
     {
       id:1, //number
-      "nombre":"Yomayra", //string
+      nombre:"Yomayra", //string
       apellido:"Ceron", //string
       sueldo: 9.4, //number
       casado: true, //boolean
