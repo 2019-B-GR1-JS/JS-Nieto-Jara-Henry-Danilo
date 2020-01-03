@@ -9,7 +9,10 @@ export class Tab3Page {
 
   usuario = {
     nombre: '',
-    apellido: ''
+    correo: '',
+    edad: '',
+    password: '',
+    confpassword: ''
   };
   constructor() {
 
@@ -18,6 +21,15 @@ export class Tab3Page {
   crearUsuario(formulario) {
     console.log(formulario.innerHTML);
   }
+
+  validarPasswordsIguales(): boolean {
+    if (this.usuario.password === this.usuario.confpassword) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
 }
 
