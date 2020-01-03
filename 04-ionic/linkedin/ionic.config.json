@@ -1,0 +1,7 @@
+{
+  "name": "linkedin",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
