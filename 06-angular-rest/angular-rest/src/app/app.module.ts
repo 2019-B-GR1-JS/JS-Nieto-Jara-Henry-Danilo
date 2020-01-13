@@ -4,25 +4,29 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
+import {UsuarioRestService} from "./services/rest/usuario-rest.service";
 import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {TableModule} from 'primeng/table';
+import {MatInputModule} 
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, // -> Directivas
+    // ngFor ngIf
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
+    FormsModule, // -> Formularios
+    HttpClientModule, // -> HTTP
+    ButtonModule,
+    TableModule,
   ],
   providers: [
     UsuarioRestService
-  ],// servicios
+  ], // Servicios
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-}

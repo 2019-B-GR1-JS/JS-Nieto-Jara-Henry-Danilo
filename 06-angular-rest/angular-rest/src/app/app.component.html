@@ -1,29 +1,92 @@
-
-<div *ngFor="let usuario of usuarios">
-  <p>Nombre: {{usuario.nombre}}</p>
-  <p>Apellido: {{usuario.apellido}}</p>
-  <p>Correo: {{usuario.correo}}</p>
-  <p>Password: {{usuario.password}}</p>
-  <P>Acciones</P>
-</div>
-
 <table>
-  <tr>
-    <th>Nombre</th>
-    <th>Apellido</th>
-    <th>Correo</th>
-    <th>Password</th>
+  <tr> <!-- table row -->
+    <th>Nombre</th> <!-- table header -->
+    <th>Apellido</th> <!-- table header -->
+    <th>Correo</th> <!-- table header -->
+    <th>Password</th> <!-- table header -->
   </tr>
-  <tr *ngFor="let usuario of usuarios">
-    <td>{{usuario.nombre}}</td>
-    <td>{{usuario.apellido}}</td>
-    <td>{{usuario.correo}}</td>
-    <td>{usuario.password}}</td>
-    <td>
-      <p-button label="Editar" (click)="editar(usuario)"></p-button>
-      <p-button label="Eliminar" (click)="eliminar(usuario)"></p-button>
-    </td>
+  <tr> <!-- table row-->
+    <td>Adrian</td> <!-- table detail -->
+    <td>Eguez</td> <!-- table detail -->
+    <td>a@a.com</td> <!-- table detail -->
+    <td>1234</td> <!-- table detail -->
   </tr>
 </table>
+
+
+<table>
+  <tr> <!-- table row -->
+    <th>Nombre</th> <!-- table header -->
+    <th>Apellido</th> <!-- table header -->
+    <th>Correo</th> <!-- table header -->
+    <th>Password</th> <!-- table header -->
+    <th>Acciones</th> <!-- table header -->
+  </tr>
+  <tr *ngFor="let usuario of usuarios"> <!-- table row-->
+    <td>{{usuario.nombre}}</td> <!-- table detail -->
+    <td>{{usuario.apellido}}</td> <!-- table detail -->
+    <td>{{usuario.correo}} </td> <!-- table detail -->
+    <td>{{usuario.password}}</td> <!-- table detail -->
+    <td>
+      <p-button label="EDITAR" (click)="editar(usuario)">
+      </p-button>
+      <p-button label="ELIMINAR" (click)="eliminar(usuario)">
+      </p-button>
+    </td> <!-- table detail -->
+  </tr>
+</table>
+
+<p-table [value]="usuariosFiltrados()"
+         [paginator]="true"
+         [rows]="FILAS">
+  <ng-template pTemplate="caption">
+    Lista de Usuarios
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Correo</th>
+      <th>Password</th>
+      <th>Acciones</th>
+    </tr>
+    <tr>
+      <th>
+        <input type="text"
+               pInputText
+               name="nombre"
+               [(ngModel)]="nombreFiltrado"
+        />
+      </th>
+      <th>
+        <input type="text" pInputText name="apellido" [(ngModel)]="apellidoFiltrado"/>
+      </th>
+      <th>
+        <input type="text" pInputText name="correo" [(ngModel)]="correoFiltrado"/>
+      </th>
+      <th>
+        <input type="text" pInputText name="password" [(ngModel)]="passwordFiltrado"/>
+      </th>
+      <th>
+
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-usuario>
+    <tr>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.apellido}}</td>
+      <td>{{usuario.correo}}</td>
+      <td>{{usuario.password}}</td>
+      <td>
+        <p-button label="EDITAR" (click)="editar(usuario)">
+        </p-button>
+        <p-button label="ELIMINAR" (click)="eliminar(usuario)">
+        </p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
 
 <router-outlet></router-outlet>

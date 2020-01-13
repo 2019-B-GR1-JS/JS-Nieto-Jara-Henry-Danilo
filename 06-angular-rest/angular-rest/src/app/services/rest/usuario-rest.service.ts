@@ -1,18 +1,17 @@
-// singletomon
-// -> solo 1  instancia del servicio
-import {Injectable} from "angular/core"
-import {NgModule} from "@angular/core";
-import {from} from "rxjs";
-import {HttpClient} from "@angular/common/http"; from "@angular/core";
+// Servicio es un SINGLETON
+// -> Solo 1 instancia del SERVICIO
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
 
-@inyectable({
+@Injectable({
   providedIn: 'root'
 })
-
-export class UsuarioRestService{
-  //Inyeccion de deoendencias
+export class UsuarioRestService {
+  // Inyeccion de dependencias
   constructor(
-    //public readonly http: HttpClient,// SErvicio -> http
-    private readonly _http: HttpClient,// SErvicio -> http
-  )
+    // public readonly httpClient: HttpClient, // Servicio -> http
+    private readonly _httpClient: HttpClient, // Servicio -> http
+  ){
+
+  }
 }
