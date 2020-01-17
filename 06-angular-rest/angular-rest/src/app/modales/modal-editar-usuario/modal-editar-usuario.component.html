@@ -1,0 +1,42 @@
+<p>modal-editar-usuario works!</p>
+<h1 mat-dialog-title>
+  Editar usuario
+</h1>
+
+<div mat-dialog-content>
+  <form #formularioEditar="ngForm">
+    <div>
+      <label for="nombreId">Nombre</label>
+      <input id="nombreId"
+             type="text"
+             name="nombre"
+             [(ngModel)]="nombre">
+    </div>
+    <div>
+      <label for="nombreId">Apellido</label>
+      <input id="apellidoId"
+             type="text"
+             name="nombre"
+             [(ngModel)]="apellido">
+    </div>
+    <div>
+      <label for="nombreId">Correo</label>
+      <input id="correoId"
+             type="text"
+             name="nombre"
+             [(ngModel)]="correo">
+    </div>
+    <div>
+      <label for="nombreId">Password</label>
+      <input id="passwordId"
+             type="password"
+             name="nombre"
+             [(ngModel)]="password">
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <p-button label="Cancelar" styleClass="ui-button-secondary"></p-button>
+  <p-button label="Aceptar" styleClass="ui-button-success"></p-button>
+</div>

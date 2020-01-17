@@ -9,11 +9,19 @@ import {UsuarioRestService} from "./services/rest/usuario-rest.service";
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
-import {MatInputModule} 
+import {MatInputModule} from "@angular/material/input";
+import { ModalEditarUsuarioComponent } from './modales/modal-editar-usuario/modal-editar-usuario.component'
+import {MatDialogModule} from '@angular/material/dialog';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
+// @ts-ignore
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalEditarUsuarioComponent
+  ],
+  entryComponents:[
+    ModalEditarUsuarioComponent
   ],
   imports: [
     BrowserModule, // -> Directivas
@@ -23,6 +31,9 @@ import {MatInputModule}
     HttpClientModule, // -> HTTP
     ButtonModule,
     TableModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [
     UsuarioRestService

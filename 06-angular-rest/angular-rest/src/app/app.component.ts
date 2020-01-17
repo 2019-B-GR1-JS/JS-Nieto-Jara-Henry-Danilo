@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { FILAS } from './constantes/numero-filas-por-tabla';
+import {MatDialog} from "@angular/material/dialog";
+import {ModalEditarUsuarioComponent} from "./modales/modal-editar-usuario/modal-editar-usuario.component";
+import {config} from "rxjs";
+import {UsuarioRestService} from "./services/rest/usuario-rest.service";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +26,9 @@ export class AppComponent implements OnInit {
   correoFiltrado = '';
   passwordFiltrado = '';
   constructor(
-    private readonly _httpClient: HttpClient
+    private readonly _httpClient: HttpClient,
+    private readonly  _matDialog: MatDialog,
+    private readonly  _usuarioRestService:UsuarioRestService
   ) {
     // CASI NUNCA HACER CONFIGURACIONES
   }
@@ -55,8 +61,54 @@ export class AppComponent implements OnInit {
 
   editar(usuario){
     console.log('Editando usuario', usuario);
+    const matDialogRefModalEditarUsuario = this._matDialog
+      .open(
+        ModalEditarUsuarioComponent,
+        {
+          width: '500px',
+            data: {
+            usuario,
+          }
+        }
+      );
+    const respuestaDialogo$ = matDialogRefModalEditarUsuario
+      .afterClosed();
+    respuestaDialogo$
+      .subscribe(
+        (datos)=>{//try
+          console.log('Datos', datos)
+          if(datos){
+            this.editarUsuarioHTTP(usuario.id, datos);
+          }else{
+
+          }
+        },
+        (error)=> { //catch
+          console.log('Error',error);
+        }
+      );
   }
 
+  editarUsuarioHTTP(id:number, datos){
+    const usuarioEditado$ = this._usuarioRestService
+      .editar(id, datos);
+    usuarioEditado$
+      .subscribe(
+        (usuarioEditado: any)=> {
+          console.log(usuarioEditado);
+          const indice = this.usuarios
+            .findIndex(
+              (usuario) => {
+                return usuario.id === id;
+              }
+            );
+          this.usuarios[indice].nombre = datos.nombre;
+          this.usuarios[indice].apellido = datos.apellido;
+          this.usuarios[indice].correo = datos.correo;
+          this.usuarios[indice].password = datos.password;
+        }
+      )
+  }
   eliminar(usuario){
     console.log('Eliminando usuario', usuario);
   }
@@ -65,22 +117,22 @@ export class AppComponent implements OnInit {
     return this.usuarios
       .filter(
       (usuario) => {
-        usuario.nombre.includes(this.nombreFiltrado).apellido.includes(this.apellidoFiltrado).correo.includes(this.correoFiltrado).password.includes(this.passwordFiltrado);
+        return usuario.nombre.toLowerCase().includes(this.nombreFiltrado.toLowerCase());
       }
     )
       .filter(
       (usuario) => {
-        usuario.nombre.includes(this.nombreFiltrado).apellido.includes(this.apellidoFiltrado).correo.includes(this.correoFiltrado).password.includes(this.passwordFiltrado);
+        return usuario.apellido.toLowerCase().includes(this.apellidoFiltrado.toLowerCase());
       }
     )
       .filter(
         (usuario) => {
-          usuario.nombre.includes(this.nombreFiltrado).apellido.includes(this.apellidoFiltrado).correo.includes(this.correoFiltrado).password.includes(this.passwordFiltrado);
+          return usuario.correo.toLowerCase().includes(this.correoFiltrado.toLowerCase());
         }
       )
       .filter(
         (usuario) => {
-          usuario.nombre.includes(this.nombreFiltrado).apellido.includes(this.apellidoFiltrado).correo.includes(this.correoFiltrado).password.includes(this.passwordFiltrado);
+          return usuario.password.toLowerCase().includes(this.passwordFiltrado.toLowerCase());
         }
       );
   }
