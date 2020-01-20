@@ -13,6 +13,30 @@
   </tr>
 </table>
 
+<ul>
+  <li>
+    <a [routerLink]="['/inicio']">
+      Inicio
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/login']">
+      Login
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/inicio','gestion-usuarios']">
+      <!-- routerLink es un arreglo de SEGMENTOS URL-->
+      Gestión de Usuarios
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/inicio','gestion-usuarios','gestion-libros']">
+      Gestión de Libros
+    </a>
+  </li>
+</ul>
+<h1>Gestion de usuarios</h1>
 
 <table>
   <tr> <!-- table row -->

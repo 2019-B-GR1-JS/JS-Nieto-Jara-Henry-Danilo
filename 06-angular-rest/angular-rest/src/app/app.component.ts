@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ModalEditarUsuarioComponent} from "./modales/modal-editar-usuario/modal-editar-usuario.component";
 import {config} from "rxjs";
 import {UsuarioRestService} from "./services/rest/usuario-rest.service";
+import {findIndex} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -109,7 +110,26 @@ export class AppComponent implements OnInit {
         }
       )
   }
+
   eliminar(usuario){
+    const eliminar$ = this._usuarioRestService
+      .eliminar(usuario.id);
+    eliminar$
+      .subscribe(
+        (usuarioEliminado) => {
+          //indice
+          const indice = this.usuarios
+            .findIndex(
+              (usuarioBuscado) => {
+                return usuarioBuscado.id === usuario.id
+              }
+            );
+          this.usuarios.splice(indice, 1);
+        },
+        (error) => {
+
+        }
+      )
     console.log('Eliminando usuario', usuario);
   }
 
@@ -135,6 +155,16 @@ export class AppComponent implements OnInit {
           return usuario.password.toLowerCase().includes(this.passwordFiltrado.toLowerCase());
         }
       );
+  }
+
+  buscar(){
+    const busqueda$ = this._usuarioRestService
+      .buscar(this.busquedaUsuario);
+    busqueda$
+      .subscribe(
+        (usuarios) =>
+
+      )
   }
 
 }

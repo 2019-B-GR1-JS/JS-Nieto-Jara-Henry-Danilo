@@ -26,6 +26,13 @@ export class UsuarioRestService {
       );
   }
 
+  buscar(id: number, datos): Observable <any>{
+    let consulta = '';
+    if(busqueda){
+      consulta = '?nombre='
+    }
+    const urlBuscar = this.url + '?nombre=' + busqueda
+  }
 
 
 }

@@ -13,12 +13,20 @@ import {MatInputModule} from "@angular/material/input";
 import { ModalEditarUsuarioComponent } from './modales/modal-editar-usuario/modal-editar-usuario.component'
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { RutainicioComponent } from './rutas/rutainicio/rutainicio.component';
+import { RutaLoginComponent } from './rutas/ruta-login/ruta-login.component';
+import { RutaGestionUsuariosComponent } from './rutas/ruta-gestion-usuarios/ruta-gestion-usuarios.component';
+import { RutaGestionLibrosComponent } from './rutas/ruta-gestion-libros/ruta-gestion-libros.component';
 
 // @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
-    ModalEditarUsuarioComponent
+    ModalEditarUsuarioComponent,
+    RutainicioComponent,
+    RutaLoginComponent,
+    RutaGestionUsuariosComponent,
+    RutaGestionLibrosComponent
   ],
   entryComponents:[
     ModalEditarUsuarioComponent
