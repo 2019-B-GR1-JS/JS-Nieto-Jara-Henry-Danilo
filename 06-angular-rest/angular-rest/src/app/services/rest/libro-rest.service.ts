@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
 })
 export class UsuarioRestService {
   // Inyeccion de dependencias
-  url = environment.url + '/usuario';
+  url = environment.url + '/libro';
 
   constructor(
     private readonly _httpClient: HttpClient, // Servicio -> http
