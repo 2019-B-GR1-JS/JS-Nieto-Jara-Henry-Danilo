@@ -26,6 +26,9 @@ module.exports = {
     precio: {
       type: 'number'
     },
+    cantidadBoletos: {
+      type: 'number'
+    },
     idPartido: {
       model: 'partido',
       required: true

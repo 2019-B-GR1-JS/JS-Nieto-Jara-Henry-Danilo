@@ -17,10 +17,10 @@ module.exports = {
     correo: {
       type: 'string'
     },
-    edad: {
+    fechaNacimiento: {
       type: 'number'
     },
-    username{
+    username: {
       type: 'string'
     },
     password: {
@@ -29,7 +29,7 @@ module.exports = {
     rol: {
       type: 'string'
     },
-    comprasDelUsuario: {
+    comprasUsuario: {
       collection: 'cabeceraCarrito',
       via: 'idUsuario'
     }
